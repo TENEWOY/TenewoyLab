@@ -5,54 +5,60 @@
     <title>Поддержка</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'hello/money.css' %}">
-     <link rel="stylesheet" href="{% static 'hello/back.css' %}">
+    <link rel="stylesheet" href="{% static 'hello/back.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <a href="{% url 'home' %}" class="back-button fa-icon">
-    <i class="fas fa-arrow-left"></i>
-    <span>На главную</span>
-</a>
 </head>
 <body>
-    <div class="support-container">
-{% load static %}
-
-{% block content %}
-<div class="support-container">
-    <h1>Поддержать Tenewoy Lab</h1>
-
-    <section class="support-intro">
-        <p>Ваша поддержка помогает развивать образовательные материалы, создавать новые курсы и улучшать платформу. Выберите удобный способ:</p>
-    </section>
-
-    <div class="payment-methods">
-        <!-- 1. Единоразовый донат -->
-        <div class="payment-option">
-            <h2>💎 Единоразовая поддержка</h2>
-            <p>Помогите проекту разовым взносом:</p>
-
-            <a href="https://yoomoney.ru/quickpay/shop-widget?writer=seller&targets=Поддержка+проекта&sum=500&account=4100119289086079&quickpay=shop&payment-type-choice=on"
-    class="donate-btn">
-    Поддержать
+    <!-- Кнопка назад -->
+    <a href="{% url 'home' %}" class="back-button fa-icon">
+        <i class="fas fa-arrow-left"></i>
+        <span>На главную</span>
     </a>
+
+    <div class="support-container">
+        {% block content %}
+        <h1>Поддержать Tenewoy Lab</h1>
+
+        <section class="support-intro">
+            <p>Ваша поддержка помогает развивать образовательные материалы, создавать новые курсы и улучшать платформу. Выберите удобный способ:</p>
+        </section>
+
+        <div class="payment-methods">
+            <!-- 1. Stripe -->
+            <div class="payment-option">
+                <h2>💳 Поддержка через Stripe</h2>
+                <form action="{% url 'create_checkout_session' %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="donate-btn">
+                        Оплатить $5 через Stripe
+                    </button>
+                </form>
+            </div>
+
+            <!-- 2. Единоразовый донат (ЮMoney виджет) -->
+            <div class="payment-option">
+                <h2>💎 Единоразовая поддержка</h2>
+                <a href="https://yoomoney.ru/quickpay/shop-widget?writer=seller&targets=Поддержка+проекта&sum=500&account={{ yoomoney_wallet }}&quickpay=shop&payment-type-choice=on"
+                   class="donate-btn">
+                   Поддержать
+                </a>
+            </div>
+
+            <!-- 3. Альтернативные способы -->
+            <div class="payment-option">
+                <h2>🤝 Другие способы</h2>
+                <ul class="alt-methods">
+                    <li><strong>ЮMoney:</strong> <code>{{ yoomoney_wallet }}</code></li>
+                    <li><strong>QIWI:</strong> <code>+7 (920) 697-10-11</code></li>
+                    <li><strong>Crypto:</strong> <code>500254297</code></li>
+                </ul>
+            </div>
         </div>
 
-        <!-- 3. Альтернативные способы -->
-        <div class="payment-option">
-            <h2>🤝 Другие способы</h2>
-            <ul class="alt-methods">
-                <li><strong>ЮMoney:</strong> <code>4100119289086079</code></li>
-                <li><strong>QIWI:</strong> <code>+7 (920) 697-10-11</code></li>
-                <li><strong>Crypto:</strong> 500254297</li>
-            </ul>
-        </div>
-    </div>
-
-    <section class="support-footer">
-        <p><small>Все средства идут на развитие платформы. Спасибо за доверие! ❤️</small></p>
-    </section>
-</div>
-{% endblock %}
+        <section class="support-footer">
+            <p><small>Все средства идут на развитие платформы. Спасибо за доверие! ❤️</small></p>
+        </section>
+        {% endblock %}
     </div>
 </body>
 </html>

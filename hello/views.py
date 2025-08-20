@@ -1,7 +1,12 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
 from .models import Visit
+import stripe
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
 def home(request):
     return render(request, 'hello/home.html')
 
@@ -35,10 +40,11 @@ def post_detail(request, post_id):
 
 def money(request):
     context = {
-        'stripe_public_key': settings.STRIPE_PUBLIC_KEY,  # Для Stripe
-        'yoomoney_wallet': settings.STRIPE_SECRET_KEY
+        "stripe_public_key": settings.STRIPE_PUBLIC_KEY,
+        "yoomoney_wallet": settings.YOOMONEY_WALLET
     }
-    return render(request, 'hello/money.html', context)
+    return render(request, "hello/money.html", context)
+
 
 def stats(request):
     visits = Visit.objects.all().order_by('-timestamp')[:50]  # последние 50 посещений
