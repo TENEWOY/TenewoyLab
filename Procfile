@@ -1,1 +1,2 @@
-web: gunicorn metanit.wsgi:application
+web: gunicorn metanit.wsgi
+
