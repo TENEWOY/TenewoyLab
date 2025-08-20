@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }} | Tenewoy Lab</title>
+    <link rel="stylesheet" href="{% static 'hello/style.css' %}">
+
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Логотип Tenewoy Lab" width="120">
+            <h1>Tenewoy Lab</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a href="{% url 'about' %}">О проекте</a></li>
+                <li><a href="{% url 'it2025' %}">Какой ЯП выбрать</a></li>
+                <li><a href="{% url 'worker' %}">Процесс обучения</a></li>
+                <li><a href="{% url 'posts_list' %}" class="active">Статьи</a></li>
+                <li><a href="{% url 'courses' %}">Курсы</a></li>
+                <li><a href="{% url 'news' %}">Новости</a></li>
+                <li><a href="{% url 'contacts' %}">Контакты</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <header>
+            <h2>{{ post.title }}</h2>
+        </header>
+
+        <article>
+            <p>{{ post.content }}</p>
+        </article>
+
+        <p><a href="{% url 'posts_list' %}">← Вернуться к списку статей</a></p>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Tenewoy Lab | Все права защищены</p>
+    </footer>
+</body>
+</html>

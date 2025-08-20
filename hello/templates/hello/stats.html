@@ -1,0 +1,22 @@
+
+{% block content %}
+<h1>Статистика посещений</h1>
+<p>Всего визитов: {{ total }}</p>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>IP</th>
+    <th>Страница</th>
+    <th>Дата</th>
+    <th>User-Agent</th>
+  </tr>
+  {% for v in visits %}
+  <tr>
+    <td>{{ v.ip_address }}</td>
+    <td>{{ v.path }}</td>
+    <td>{{ v.timestamp }}</td>
+    <td>{{ v.user_agent|truncatechars:50 }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

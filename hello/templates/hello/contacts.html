@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты | Tenewoy Lab</title>
+    <link rel="stylesheet" href="{% static 'hello/contacts.css' %}">
+    <link rel="stylesheet" href="{% static 'hello/back.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <a href="{% url 'home' %}" class="back-button fa-icon">
+    <i class="fas fa-arrow-left"></i>
+    <span>На главную</span>
+</a>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="main-title">Свяжитесь с нами</h1>
+
+        <div class="contact-card">
+            <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <div class="contact-info">
+                    <h3>Электронная почта</h3>
+                    <p><a href="mailto:razumovski58@gmail.com">razumovski58@gmail.com</a> (основная)</p>
+                    <p><a href="mailto:collab@tenewoy-lab.ru">companytenewoylab@gmail.com</a> (сотрудничество)</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-icon">🤖</span>
+                <div class="contact-info">
+                    <h3>Telegram</h3>
+                    <p><a href="https://t.me/TenewoyLabBot" target="_blank">@tenewoylab_bot</a> (техподдержка 24/7)</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-icon">🛠️</span>
+                <div class="contact-info">
+                    <h3>GitHub</h3>
+                    <p><a href="https://github.com/TENEWOY" target="_blank">TENEWOY</a> (Мои проекты)</p>
+                </div>
+            </div>
+
+
+
+            <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <div class="contact-info">
+                    <h3>Телефон</h3>
+                    <p>+7 (XXX) XXX-XX-XX (основной)</p>
+                    <p>+7 (XXX) XXX-XX-XX (WhatsApp/Telegram)</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-icon">🕘</span>
+                <div class="contact-info">
+                    <h3>Часы работы</h3>
+                    <p>Пн-Пт: 9:00 - 18:00 (МСК)</p>
+                    <p>Сб-Вс: выходной</p>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-link" title="Telegram">✈️</a>
+                <a href="https://vk.com/tenewey" class="social-link" title="VK">ВК</a>
+                <a href="https://github.com/TENEWOY" class="social-link" title="GitHub">{} </a>
+                <a href="https://www.youtube.com/@TenewoyLab" class="social-link" title="YouTube">▶️</a>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=..." frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>© 2025 Tenewoy Lab. Все права защищены.</p>
+        <div class="footer-links">
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Условия использования</a>
+        </div>
+    </footer>
+</body>
+</html>

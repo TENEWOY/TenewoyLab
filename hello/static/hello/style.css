@@ -1,0 +1,195 @@
+/* Общие стили */
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4895ef;
+    --dark-color: #1b263b;
+    --light-color: #f8f9fa;
+    --success-color: #4cc9f0;
+    --text-color: #212529;
+    --text-light: #6c757d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: var(--text-color);
+    line-height: 1.6;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+}
+
+/* Боковая панель */
+.sidebar {
+    background: linear-gradient(135deg, var(--dark-color), var(--secondary-color));
+    color: white;
+    padding: 2rem 1.5rem;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-links li:hover {
+    transform: translateX(5px);
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+    padding: 0.7rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links .active {
+    color: white;
+    background-color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Основное содержимое */
+.content {
+    padding: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.content header {
+    margin-bottom: 2rem;
+}
+
+.content header h2 {
+    font-size: 2.2rem;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+article {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+article p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+article ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+article li {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+article li::before {
+    content: "•";
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -3px;
+}
+
+/* Подвал */
+.footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--dark-color);
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        height: auto;
+        position: relative;
+        padding: 1.5rem;
+    }
+
+    .logo h1 {
+        margin-bottom: 1rem;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .nav-links li {
+        margin-bottom: 0;
+    }
+
+    .content {
+        padding: 1.5rem;
+    }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+article {
+    animation: fadeIn 0.6s ease-out;
+}
+
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4895ef;
+    --dark-color: #1b263b;
+    --light-color: #f8f9fa;
+    --success-color: #4cc9f0;
+    --text-color: #212529;
+    --text-light: #6c757d;
+}
+

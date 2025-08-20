@@ -1,0 +1,70 @@
+.back-button {
+    /* Позиционирование */
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    z-index: 1000;
+
+    /* Внешний вид */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px 10px 15px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+
+    /* Цвета */
+    background: linear-gradient(135deg, #4361ee, #3a0ca3);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+
+    /* Иконка */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: left center;
+}
+
+/* Эффекты при наведении */
+.back-button:hover {
+    transform: translateX(5px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+    background: linear-gradient(135deg, #3a0ca3, #4361ee);
+}
+
+/* Анимация стрелки */
+.back-button::before {
+    content: "←";
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.back-button:hover::before {
+    transform: translateX(-3px);
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    .back-button {
+        top: 15px;
+        left: 15px;
+        padding: 8px 16px 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Альтернативный вариант с иконкой из Font Awesome */
+.back-button.fa-icon {
+    padding: 10px 20px 10px 12px;
+}
+
+.back-button.fa-icon i {
+    transition: transform 0.3s ease;
+}
+
+.back-button.fa-icon:hover i {
+    transform: translateX(-3px);
+}
