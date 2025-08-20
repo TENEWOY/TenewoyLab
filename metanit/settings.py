@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-+fkhylh&cppfxntec!zfh++%4lhr+g58#vja98d8gp3h6c49p#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://tenewoylab.onrender.com']
+ALLOWED_HOSTS = [
+    'tenewoylab.onrender.com',  # основной домен Render
+    'www.tenewoylab.onrender.com',  # если используешь www
+]
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Application definition
